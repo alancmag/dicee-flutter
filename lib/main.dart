@@ -34,20 +34,35 @@ class _DicePageState extends State<DicePage> {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Row(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Expanded(
-            child: FlatButton(
-              onPressed: geraRandom,
-              child: Image.asset('images/dice$leftNumber.png'),
-            ),
+          Row(
+            children: <Widget>[
+              Expanded(
+                child: FlatButton(
+                  onPressed: geraRandom,
+                  child: Image.asset('images/dice$leftNumber.png'),
+                ),
+              ),
+              Expanded(
+                child: FlatButton(
+                  onPressed: geraRandom,
+                  child: Image.asset('images/dice$rightNumber.png'),
+                ),
+              ),
+            ],
           ),
-          Expanded(
-            child: FlatButton(
-              onPressed: geraRandom,
-              child: Image.asset('images/dice$rightNumber.png'),
+          Padding(
+            padding: const EdgeInsets.all(30),
+            child: Text(
+              'Total: ${leftNumber + rightNumber}',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 44,
+              ),
             ),
-          ),
+          )
         ],
       ),
     );
